@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloWfbsStoreContainer" CdmEntityContainer="WFBSEntities">
+    <EntitySetMapping Name="AREA">
+      <EntityTypeMapping TypeName="ModeloWfbs.AREA">
+        <MappingFragment StoreEntitySet="AREA">
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ABREVIACION" ColumnName="ABREVIACION" />
+          <ScalarProperty Name="OBSOLETA" ColumnName="OBSOLETA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUDITORIA">
+      <EntityTypeMapping TypeName="ModeloWfbs.AUDITORIA">
+        <MappingFragment StoreEntitySet="AUDITORIA">
+          <ScalarProperty Name="ID_AUDITORIA" ColumnName="ID_AUDITORIA" />
+          <ScalarProperty Name="IP_CONEXION" ColumnName="IP_CONEXION" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="FECHA_INGRESO" ColumnName="FECHA_INGRESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPETENCIA">
+      <EntityTypeMapping TypeName="ModeloWfbs.COMPETENCIA">
+        <MappingFragment StoreEntitySet="COMPETENCIA">
+          <ScalarProperty Name="ID_COMPETENCIA" ColumnName="ID_COMPETENCIA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="SIGLA" ColumnName="SIGLA" />
+          <ScalarProperty Name="OBSOLETA" ColumnName="OBSOLETA" />
+          <ScalarProperty Name="NIVEL_OPTIMO_ESPERADO" ColumnName="NIVEL_OPTIMO_ESPERADO" />
+          <ScalarProperty Name="PREGUNTA_ASOCIADA" ColumnName="PREGUNTA_ASOCIADA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_EVALUACION">
+      <EntityTypeMapping TypeName="ModeloWfbs.DETALLE_EVALUACION">
+        <MappingFragment StoreEntitySet="DETALLE_EVALUACION">
+          <ScalarProperty Name="ID_DETALLE_EVALUACION" ColumnName="ID_DETALLE_EVALUACION" />
+          <ScalarProperty Name="ID_PERIODO_EVALUACION" ColumnName="ID_PERIODO_EVALUACION" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="ID_EVALUACION" ColumnName="ID_EVALUACION" />
+          <ScalarProperty Name="NOTA_AUTOEVALUACION" ColumnName="NOTA_AUTOEVALUACION" />
+          <ScalarProperty Name="NOTA_EVALUACION" ColumnName="NOTA_EVALUACION" />
+          <ScalarProperty Name="NOTA_FINAL" ColumnName="NOTA_FINAL" />
+          <ScalarProperty Name="BRECHA" ColumnName="BRECHA" />
+          <ScalarProperty Name="AREA_EVALUADA" ColumnName="AREA_EVALUADA" />
+          <ScalarProperty Name="RUT_EVALUADOR" ColumnName="RUT_EVALUADOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVALUACION">
+      <EntityTypeMapping TypeName="ModeloWfbs.EVALUACION">
+        <MappingFragment StoreEntitySet="EVALUACION">
+          <ScalarProperty Name="ID_EVALUACION" ColumnName="ID_EVALUACION" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="ID_PERIODO_EVALUACION" ColumnName="ID_PERIODO_EVALUACION" />
+          <ScalarProperty Name="ID_TIPO_EVALUACION" ColumnName="ID_TIPO_EVALUACION" />
+          <ScalarProperty Name="ID_COMPETENCIA" ColumnName="ID_COMPETENCIA" />
+          <ScalarProperty Name="RUT_EVALUADO" ColumnName="RUT_EVALUADO" />
+          <ScalarProperty Name="RUT_EVALUADOR" ColumnName="RUT_EVALUADOR" />
+          <ScalarProperty Name="NOTA_ESPERADA_COMPETENCIA" ColumnName="NOTA_ESPERADA_COMPETENCIA" />
+          <ScalarProperty Name="FECHA_CONTESTA_ENCUESTA" ColumnName="FECHA_CONTESTA_ENCUESTA" />
+          <ScalarProperty Name="NOTA_ENCUESTA" ColumnName="NOTA_ENCUESTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HABILIDAD">
+      <EntityTypeMapping TypeName="ModeloWfbs.HABILIDAD">
+        <MappingFragment StoreEntitySet="HABILIDAD">
+          <ScalarProperty Name="ID_HABILIDAD" ColumnName="ID_HABILIDAD" />
+          <ScalarProperty Name="ID_COMPETENCIA" ColumnName="ID_COMPETENCIA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ORDEN_ASIGNADO" ColumnName="ORDEN_ASIGNADO" />
+          <ScalarProperty Name="ALTERNATIVA_PREGUNTA" ColumnName="ALTERNATIVA_PREGUNTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBSERVACION_COMPETENCIA">
+      <EntityTypeMapping TypeName="ModeloWfbs.OBSERVACION_COMPETENCIA">
+        <MappingFragment StoreEntitySet="OBSERVACION_COMPETENCIA">
+          <ScalarProperty Name="ID_OBSERVACION" ColumnName="ID_OBSERVACION" />
+          <ScalarProperty Name="ID_COMPETENCIA" ColumnName="ID_COMPETENCIA" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="NIVEL_INFERIOR" ColumnName="NIVEL_INFERIOR" />
+          <ScalarProperty Name="NIVEL_SUPERIOR" ColumnName="NIVEL_SUPERIOR" />
+          <ScalarProperty Name="MENSAJE" ColumnName="MENSAJE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL">
+      <EntityTypeMapping TypeName="ModeloWfbs.PERFIL">
+        <MappingFragment StoreEntitySet="PERFIL">
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_DE_CARGO">
+      <EntityTypeMapping TypeName="ModeloWfbs.PERFIL_DE_CARGO">
+        <MappingFragment StoreEntitySet="PERFIL_DE_CARGO">
+          <ScalarProperty Name="ID_PERFIL_DE_CARGO" ColumnName="ID_PERFIL_DE_CARGO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="OBSOLETO" ColumnName="OBSOLETO" />
+          <ScalarProperty Name="ID_AREAS" ColumnName="ID_AREAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERIODO_EVALUACION">
+      <EntityTypeMapping TypeName="ModeloWfbs.PERIODO_EVALUACION">
+        <MappingFragment StoreEntitySet="PERIODO_EVALUACION">
+          <ScalarProperty Name="ID_PERIODO_EVALUACION" ColumnName="ID_PERIODO_EVALUACION" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
+          <ScalarProperty Name="PORCENTAJE_EVALUACION" ColumnName="PORCENTAJE_EVALUACION" />
+          <ScalarProperty Name="PORCENTAJE_AUTOEVALUACION" ColumnName="PORCENTAJE_AUTOEVALUACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_EVALUACION">
+      <EntityTypeMapping TypeName="ModeloWfbs.TIPO_EVALUACION">
+        <MappingFragment StoreEntitySet="TIPO_EVALUACION">
+          <ScalarProperty Name="ID_TIPO_EVALUACION" ColumnName="ID_TIPO_EVALUACION" />
+          <ScalarProperty Name="TIPO_EVALUACION1" ColumnName="TIPO_EVALUACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="ModeloWfbs.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="JEFE_RESPECTIVO" ColumnName="JEFE_RESPECTIVO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="OBSOLETO" ColumnName="OBSOLETO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="R_A_P" TypeName="ModeloWfbs.R_A_P" StoreEntitySet="R_A_P">
+      <EndProperty Name="PERFIL_DE_CARGO">
+        <ScalarProperty Name="ID_PERFIL_DE_CARGO" ColumnName="ID_PERFIL_DE_CARGO" />
+      </EndProperty>
+      <EndProperty Name="AREA">
+        <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="R_P_C" TypeName="ModeloWfbs.R_P_C" StoreEntitySet="R_P_C">
+      <EndProperty Name="AREA">
+        <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+      </EndProperty>
+      <EndProperty Name="COMPETENCIA">
+        <ScalarProperty Name="ID_COMPETENCIA" ColumnName="ID_COMPETENCIA" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

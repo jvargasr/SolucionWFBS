@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloWfbs" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AREA">
+    <Key>
+      <PropertyRef Name="ID_AREA" />
+    </Key>
+    <Property Name="ID_AREA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ABREVIACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OBSOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="EVALUACION" Relationship="Self.FK_EVALUACI_R_E_A_AREA" FromRole="AREA" ToRole="EVALUACION" />
+    <NavigationProperty Name="OBSERVACION_COMPETENCIA" Relationship="Self.FK_OBSERVAC_R_P_O_AREA" FromRole="AREA" ToRole="OBSERVACION_COMPETENCIA" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_R_P_A_AREA" FromRole="AREA" ToRole="USUARIO" />
+    <NavigationProperty Name="PERFIL_DE_CARGO" Relationship="Self.R_A_P" FromRole="AREA" ToRole="PERFIL_DE_CARGO" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.R_P_C" FromRole="AREA" ToRole="COMPETENCIA" />
+  </EntityType>
+  <EntityType Name="AUDITORIA">
+    <Key>
+      <PropertyRef Name="ID_AUDITORIA" />
+    </Key>
+    <Property Name="ID_AUDITORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IP_CONEXION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUT" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_INGRESO" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMPETENCIA">
+    <Key>
+      <PropertyRef Name="ID_COMPETENCIA" />
+    </Key>
+    <Property Name="ID_COMPETENCIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SIGLA" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="OBSOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NIVEL_OPTIMO_ESPERADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PREGUNTA_ASOCIADA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EVALUACION" Relationship="Self.FK_EVALUACI_R_E_C_COMPETEN" FromRole="COMPETENCIA" ToRole="EVALUACION" />
+    <NavigationProperty Name="HABILIDAD" Relationship="Self.FK_HABILIDA_R_C_H_COMPETEN" FromRole="COMPETENCIA" ToRole="HABILIDAD" />
+    <NavigationProperty Name="OBSERVACION_COMPETENCIA" Relationship="Self.FK_OBSERVAC_R_O_C_COMPETEN" FromRole="COMPETENCIA" ToRole="OBSERVACION_COMPETENCIA" />
+    <NavigationProperty Name="AREA" Relationship="Self.R_P_C" FromRole="COMPETENCIA" ToRole="AREA" />
+  </EntityType>
+  <EntityType Name="DETALLE_EVALUACION">
+    <Key>
+      <PropertyRef Name="ID_DETALLE_EVALUACION" />
+    </Key>
+    <Property Name="ID_DETALLE_EVALUACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PERIODO_EVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RUT" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ID_EVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOTA_AUTOEVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOTA_EVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOTA_FINAL" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="BRECHA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="AREA_EVALUADA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUT_EVALUADOR" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EVALUACION" Relationship="Self.FK_DETALLE__R_DE_E_EVALUACI" FromRole="DETALLE_EVALUACION" ToRole="EVALUACION" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK_DETALLE__R_DE_F_USUARIO" FromRole="DETALLE_EVALUACION" ToRole="USUARIO" />
+    <NavigationProperty Name="PERIODO_EVALUACION" Relationship="Self.FK_DETALLE__R_DE_PE_PERIODO_" FromRole="DETALLE_EVALUACION" ToRole="PERIODO_EVALUACION" />
+  </EntityType>
+  <EntityType Name="EVALUACION">
+    <Key>
+      <PropertyRef Name="ID_EVALUACION" />
+    </Key>
+    <Property Name="ID_EVALUACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_AREA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_PERIODO_EVALUACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPO_EVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_COMPETENCIA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RUT_EVALUADO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUT_EVALUADOR" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="NOTA_ESPERADA_COMPETENCIA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FECHA_CONTESTA_ENCUESTA" Type="DateTime" Nullable="false" />
+    <Property Name="NOTA_ENCUESTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="AREA" Relationship="Self.FK_EVALUACI_R_E_A_AREA" FromRole="EVALUACION" ToRole="AREA" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.FK_EVALUACI_R_E_C_COMPETEN" FromRole="EVALUACION" ToRole="COMPETENCIA" />
+    <NavigationProperty Name="DETALLE_EVALUACION" Relationship="Self.FK_DETALLE__R_DE_E_EVALUACI" FromRole="EVALUACION" ToRole="DETALLE_EVALUACION" />
+    <NavigationProperty Name="TIPO_EVALUACION" Relationship="Self.FK_EVALUACI_R_E_TE_TIPO_EVA" FromRole="EVALUACION" ToRole="TIPO_EVALUACION" />
+    <NavigationProperty Name="PERIODO_EVALUACION" Relationship="Self.FK_EVALUACI_R_PE_E_PERIODO_" FromRole="EVALUACION" ToRole="PERIODO_EVALUACION" />
+  </EntityType>
+  <EntityType Name="HABILIDAD">
+    <Key>
+      <PropertyRef Name="ID_HABILIDAD" />
+    </Key>
+    <Property Name="ID_HABILIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_COMPETENCIA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORDEN_ASIGNADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ALTERNATIVA_PREGUNTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.FK_HABILIDA_R_C_H_COMPETEN" FromRole="HABILIDAD" ToRole="COMPETENCIA" />
+  </EntityType>
+  <EntityType Name="OBSERVACION_COMPETENCIA">
+    <Key>
+      <PropertyRef Name="ID_OBSERVACION" />
+    </Key>
+    <Property Name="ID_OBSERVACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_COMPETENCIA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_AREA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NIVEL_INFERIOR" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NIVEL_SUPERIOR" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MENSAJE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AREA" Relationship="Self.FK_OBSERVAC_R_P_O_AREA" FromRole="OBSERVACION_COMPETENCIA" ToRole="AREA" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.FK_OBSERVAC_R_O_C_COMPETEN" FromRole="OBSERVACION_COMPETENCIA" ToRole="COMPETENCIA" />
+  </EntityType>
+  <EntityType Name="PERFIL">
+    <Key>
+      <PropertyRef Name="ID_PERFIL" />
+    </Key>
+    <Property Name="ID_PERFIL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_USUARIO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_R_P_F_PERFIL" FromRole="PERFIL" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="PERFIL_DE_CARGO">
+    <Key>
+      <PropertyRef Name="ID_PERFIL_DE_CARGO" />
+    </Key>
+    <Property Name="ID_PERFIL_DE_CARGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OBSOLETO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_AREAS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AREA" Relationship="Self.R_A_P" FromRole="PERFIL_DE_CARGO" ToRole="AREA" />
+  </EntityType>
+  <EntityType Name="PERIODO_EVALUACION">
+    <Key>
+      <PropertyRef Name="ID_PERIODO_EVALUACION" />
+    </Key>
+    <Property Name="ID_PERIODO_EVALUACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" />
+    <Property Name="VIGENCIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PORCENTAJE_EVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PORCENTAJE_AUTOEVALUACION" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="DETALLE_EVALUACION" Relationship="Self.FK_DETALLE__R_DE_PE_PERIODO_" FromRole="PERIODO_EVALUACION" ToRole="DETALLE_EVALUACION" />
+    <NavigationProperty Name="EVALUACION" Relationship="Self.FK_EVALUACI_R_PE_E_PERIODO_" FromRole="PERIODO_EVALUACION" ToRole="EVALUACION" />
+  </EntityType>
+  <EntityType Name="TIPO_EVALUACION">
+    <Key>
+      <PropertyRef Name="ID_TIPO_EVALUACION" />
+    </Key>
+    <Property Name="ID_TIPO_EVALUACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_EVALUACION1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EVALUACION" Relationship="Self.FK_EVALUACI_R_E_TE_TIPO_EVA" FromRole="TIPO_EVALUACION" ToRole="EVALUACION" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="RUT" />
+    </Key>
+    <Property Name="RUT" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_AREA" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_PERFIL" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SEXO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="JEFE_RESPECTIVO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="OBSOLETO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="AREA" Relationship="Self.FK_USUARIO_R_P_A_AREA" FromRole="USUARIO" ToRole="AREA" />
+    <NavigationProperty Name="DETALLE_EVALUACION" Relationship="Self.FK_DETALLE__R_DE_F_USUARIO" FromRole="USUARIO" ToRole="DETALLE_EVALUACION" />
+    <NavigationProperty Name="PERFIL" Relationship="Self.FK_USUARIO_R_P_F_PERFIL" FromRole="USUARIO" ToRole="PERFIL" />
+  </EntityType>
+  <Association Name="FK_EVALUACI_R_E_A_AREA">
+    <End Role="AREA" Type="Self.AREA" Multiplicity="0..1" />
+    <End Role="EVALUACION" Type="Self.EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="EVALUACION">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OBSERVAC_R_P_O_AREA">
+    <End Role="AREA" Type="Self.AREA" Multiplicity="0..1" />
+    <End Role="OBSERVACION_COMPETENCIA" Type="Self.OBSERVACION_COMPETENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="OBSERVACION_COMPETENCIA">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIO_R_P_A_AREA">
+    <End Role="AREA" Type="Self.AREA" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVALUACI_R_E_C_COMPETEN">
+    <End Role="COMPETENCIA" Type="Self.COMPETENCIA" Multiplicity="0..1" />
+    <End Role="EVALUACION" Type="Self.EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPETENCIA">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Principal>
+      <Dependent Role="EVALUACION">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HABILIDA_R_C_H_COMPETEN">
+    <End Role="COMPETENCIA" Type="Self.COMPETENCIA" Multiplicity="0..1" />
+    <End Role="HABILIDAD" Type="Self.HABILIDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPETENCIA">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Principal>
+      <Dependent Role="HABILIDAD">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OBSERVAC_R_O_C_COMPETEN">
+    <End Role="COMPETENCIA" Type="Self.COMPETENCIA" Multiplicity="0..1" />
+    <End Role="OBSERVACION_COMPETENCIA" Type="Self.OBSERVACION_COMPETENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPETENCIA">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Principal>
+      <Dependent Role="OBSERVACION_COMPETENCIA">
+        <PropertyRef Name="ID_COMPETENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__R_DE_E_EVALUACI">
+    <End Role="EVALUACION" Type="Self.EVALUACION" Multiplicity="0..1" />
+    <End Role="DETALLE_EVALUACION" Type="Self.DETALLE_EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVALUACION">
+        <PropertyRef Name="ID_EVALUACION" />
+      </Principal>
+      <Dependent Role="DETALLE_EVALUACION">
+        <PropertyRef Name="ID_EVALUACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__R_DE_F_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="DETALLE_EVALUACION" Type="Self.DETALLE_EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="RUT" />
+      </Principal>
+      <Dependent Role="DETALLE_EVALUACION">
+        <PropertyRef Name="RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__R_DE_PE_PERIODO_">
+    <End Role="PERIODO_EVALUACION" Type="Self.PERIODO_EVALUACION" Multiplicity="0..1" />
+    <End Role="DETALLE_EVALUACION" Type="Self.DETALLE_EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERIODO_EVALUACION">
+        <PropertyRef Name="ID_PERIODO_EVALUACION" />
+      </Principal>
+      <Dependent Role="DETALLE_EVALUACION">
+        <PropertyRef Name="ID_PERIODO_EVALUACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVALUACI_R_E_TE_TIPO_EVA">
+    <End Role="TIPO_EVALUACION" Type="Self.TIPO_EVALUACION" Multiplicity="0..1" />
+    <End Role="EVALUACION" Type="Self.EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_EVALUACION">
+        <PropertyRef Name="ID_TIPO_EVALUACION" />
+      </Principal>
+      <Dependent Role="EVALUACION">
+        <PropertyRef Name="ID_TIPO_EVALUACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVALUACI_R_PE_E_PERIODO_">
+    <End Role="PERIODO_EVALUACION" Type="Self.PERIODO_EVALUACION" Multiplicity="1" />
+    <End Role="EVALUACION" Type="Self.EVALUACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERIODO_EVALUACION">
+        <PropertyRef Name="ID_PERIODO_EVALUACION" />
+      </Principal>
+      <Dependent Role="EVALUACION">
+        <PropertyRef Name="ID_PERIODO_EVALUACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIO_R_P_F_PERFIL">
+    <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_A_P">
+    <End Role="PERFIL_DE_CARGO" Type="Self.PERFIL_DE_CARGO" Multiplicity="*" />
+    <End Role="AREA" Type="Self.AREA" Multiplicity="*" />
+  </Association>
+  <Association Name="R_P_C">
+    <End Role="AREA" Type="Self.AREA" Multiplicity="*" />
+    <End Role="COMPETENCIA" Type="Self.COMPETENCIA" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="WFBSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AREA" EntityType="Self.AREA" />
+    <EntitySet Name="AUDITORIA" EntityType="Self.AUDITORIA" />
+    <EntitySet Name="COMPETENCIA" EntityType="Self.COMPETENCIA" />
+    <EntitySet Name="DETALLE_EVALUACION" EntityType="Self.DETALLE_EVALUACION" />
+    <EntitySet Name="EVALUACION" EntityType="Self.EVALUACION" />
+    <EntitySet Name="HABILIDAD" EntityType="Self.HABILIDAD" />
+    <EntitySet Name="OBSERVACION_COMPETENCIA" EntityType="Self.OBSERVACION_COMPETENCIA" />
+    <EntitySet Name="PERFIL" EntityType="Self.PERFIL" />
+    <EntitySet Name="PERFIL_DE_CARGO" EntityType="Self.PERFIL_DE_CARGO" />
+    <EntitySet Name="PERIODO_EVALUACION" EntityType="Self.PERIODO_EVALUACION" />
+    <EntitySet Name="TIPO_EVALUACION" EntityType="Self.TIPO_EVALUACION" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+    <AssociationSet Name="FK_EVALUACI_R_E_A_AREA" Association="Self.FK_EVALUACI_R_E_A_AREA">
+      <End Role="AREA" EntitySet="AREA" />
+      <End Role="EVALUACION" EntitySet="EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OBSERVAC_R_P_O_AREA" Association="Self.FK_OBSERVAC_R_P_O_AREA">
+      <End Role="AREA" EntitySet="AREA" />
+      <End Role="OBSERVACION_COMPETENCIA" EntitySet="OBSERVACION_COMPETENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIO_R_P_A_AREA" Association="Self.FK_USUARIO_R_P_A_AREA">
+      <End Role="AREA" EntitySet="AREA" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVALUACI_R_E_C_COMPETEN" Association="Self.FK_EVALUACI_R_E_C_COMPETEN">
+      <End Role="COMPETENCIA" EntitySet="COMPETENCIA" />
+      <End Role="EVALUACION" EntitySet="EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HABILIDA_R_C_H_COMPETEN" Association="Self.FK_HABILIDA_R_C_H_COMPETEN">
+      <End Role="COMPETENCIA" EntitySet="COMPETENCIA" />
+      <End Role="HABILIDAD" EntitySet="HABILIDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OBSERVAC_R_O_C_COMPETEN" Association="Self.FK_OBSERVAC_R_O_C_COMPETEN">
+      <End Role="COMPETENCIA" EntitySet="COMPETENCIA" />
+      <End Role="OBSERVACION_COMPETENCIA" EntitySet="OBSERVACION_COMPETENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__R_DE_E_EVALUACI" Association="Self.FK_DETALLE__R_DE_E_EVALUACI">
+      <End Role="EVALUACION" EntitySet="EVALUACION" />
+      <End Role="DETALLE_EVALUACION" EntitySet="DETALLE_EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__R_DE_F_USUARIO" Association="Self.FK_DETALLE__R_DE_F_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="DETALLE_EVALUACION" EntitySet="DETALLE_EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__R_DE_PE_PERIODO_" Association="Self.FK_DETALLE__R_DE_PE_PERIODO_">
+      <End Role="PERIODO_EVALUACION" EntitySet="PERIODO_EVALUACION" />
+      <End Role="DETALLE_EVALUACION" EntitySet="DETALLE_EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVALUACI_R_E_TE_TIPO_EVA" Association="Self.FK_EVALUACI_R_E_TE_TIPO_EVA">
+      <End Role="TIPO_EVALUACION" EntitySet="TIPO_EVALUACION" />
+      <End Role="EVALUACION" EntitySet="EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVALUACI_R_PE_E_PERIODO_" Association="Self.FK_EVALUACI_R_PE_E_PERIODO_">
+      <End Role="PERIODO_EVALUACION" EntitySet="PERIODO_EVALUACION" />
+      <End Role="EVALUACION" EntitySet="EVALUACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIO_R_P_F_PERFIL" Association="Self.FK_USUARIO_R_P_F_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="R_A_P" Association="Self.R_A_P">
+      <End Role="PERFIL_DE_CARGO" EntitySet="PERFIL_DE_CARGO" />
+      <End Role="AREA" EntitySet="AREA" />
+    </AssociationSet>
+    <AssociationSet Name="R_P_C" Association="Self.R_P_C">
+      <End Role="AREA" EntitySet="AREA" />
+      <End Role="COMPETENCIA" EntitySet="COMPETENCIA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioWFBS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50097/ServicioWFBS.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50097/ServicioWFBS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioWFBS_CrearCompetencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearCompetencia" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearCompetencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearCompetenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarCompetencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCompetencia" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarCompetencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCompetenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarCompetencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCompetencia" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarCompetencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCompetenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerCompetencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCompetencia" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerCompetencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCompetenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerCompetencias_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCompetencias" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerCompetencias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCompetenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearHabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearHabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearHabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearHabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarHabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarHabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarHabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarHabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarHabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarHabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarHabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarHabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabilidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabilidades" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabilidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabilidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabPorCom_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabPorCom" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerHabPorCom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerHabPorComResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearPeriodoEvaluacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPeriodoEvaluacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearPeriodoEvaluacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPeriodoEvaluacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarPeriodoEvaluacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarPeriodoEvaluacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarPeriodoEvaluacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarPeriodoEvaluacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarPeriodoEvaluacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPeriodoEvaluacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarPeriodoEvaluacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPeriodoEvaluacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPeriodoEvaluacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPeriodoEvaluacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPeriodoEvaluacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPeriodoEvaluacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPeriodosEvaluaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPeriodosEvaluaciones" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPeriodosEvaluaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPeriodosEvaluacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ValidarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ValidarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_Desactivado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Desactivado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_Desactivado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesactivadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearArea" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarArea" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarArea" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerArea" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerAreas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearPerfildeCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPerfildeCargo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_CrearPerfildeCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPerfildeCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarPerfildeCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarPerfildeCargo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_ActualizarPerfildeCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarPerfildeCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarPerfildeCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPerfildeCargo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_EliminarPerfildeCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPerfildeCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPerfildeCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPerfildeCargo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPerfildeCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPerfildeCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPerfilesdeCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPerfilesdeCargo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioWFBS_LeerPerfilesdeCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPerfilesdeCargoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioWFBS">
+    <wsdl:operation name="CrearCompetencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearCompetencia" message="tns:IServicioWFBS_CrearCompetencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearCompetenciaResponse" message="tns:IServicioWFBS_CrearCompetencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCompetencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarCompetencia" message="tns:IServicioWFBS_ActualizarCompetencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarCompetenciaResponse" message="tns:IServicioWFBS_ActualizarCompetencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCompetencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarCompetencia" message="tns:IServicioWFBS_EliminarCompetencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarCompetenciaResponse" message="tns:IServicioWFBS_EliminarCompetencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerCompetencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerCompetencia" message="tns:IServicioWFBS_LeerCompetencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerCompetenciaResponse" message="tns:IServicioWFBS_LeerCompetencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerCompetencias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerCompetencias" message="tns:IServicioWFBS_LeerCompetencias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerCompetenciasResponse" message="tns:IServicioWFBS_LeerCompetencias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearHabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearHabilidad" message="tns:IServicioWFBS_CrearHabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearHabilidadResponse" message="tns:IServicioWFBS_CrearHabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarHabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarHabilidad" message="tns:IServicioWFBS_ActualizarHabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarHabilidadResponse" message="tns:IServicioWFBS_ActualizarHabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarHabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarHabilidad" message="tns:IServicioWFBS_EliminarHabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarHabilidadResponse" message="tns:IServicioWFBS_EliminarHabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabilidad" message="tns:IServicioWFBS_LeerHabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabilidadResponse" message="tns:IServicioWFBS_LeerHabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabilidades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabilidades" message="tns:IServicioWFBS_LeerHabilidades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabilidadesResponse" message="tns:IServicioWFBS_LeerHabilidades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabPorCom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabPorCom" message="tns:IServicioWFBS_LeerHabPorCom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerHabPorComResponse" message="tns:IServicioWFBS_LeerHabPorCom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearPeriodoEvaluacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearPeriodoEvaluacion" message="tns:IServicioWFBS_CrearPeriodoEvaluacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearPeriodoEvaluacionResponse" message="tns:IServicioWFBS_CrearPeriodoEvaluacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPeriodoEvaluacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarPeriodoEvaluacion" message="tns:IServicioWFBS_ActualizarPeriodoEvaluacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarPeriodoEvaluacionResponse" message="tns:IServicioWFBS_ActualizarPeriodoEvaluacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPeriodoEvaluacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarPeriodoEvaluacion" message="tns:IServicioWFBS_EliminarPeriodoEvaluacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarPeriodoEvaluacionResponse" message="tns:IServicioWFBS_EliminarPeriodoEvaluacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPeriodoEvaluacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPeriodoEvaluacion" message="tns:IServicioWFBS_LeerPeriodoEvaluacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPeriodoEvaluacionResponse" message="tns:IServicioWFBS_LeerPeriodoEvaluacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPeriodosEvaluaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPeriodosEvaluaciones" message="tns:IServicioWFBS_LeerPeriodosEvaluaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPeriodosEvaluacionesResponse" message="tns:IServicioWFBS_LeerPeriodosEvaluaciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ValidarUsuario" message="tns:IServicioWFBS_ValidarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ValidarUsuarioResponse" message="tns:IServicioWFBS_ValidarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Desactivado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/Desactivado" message="tns:IServicioWFBS_Desactivado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/DesactivadoResponse" message="tns:IServicioWFBS_Desactivado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearUsuario" message="tns:IServicioWFBS_CrearUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearUsuarioResponse" message="tns:IServicioWFBS_CrearUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarUsuario" message="tns:IServicioWFBS_ActualizarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarUsuarioResponse" message="tns:IServicioWFBS_ActualizarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarUsuario" message="tns:IServicioWFBS_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarUsuarioResponse" message="tns:IServicioWFBS_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerUsuario" message="tns:IServicioWFBS_LeerUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerUsuarioResponse" message="tns:IServicioWFBS_LeerUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerUsuarios" message="tns:IServicioWFBS_LeerUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerUsuariosResponse" message="tns:IServicioWFBS_LeerUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearArea" message="tns:IServicioWFBS_CrearArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearAreaResponse" message="tns:IServicioWFBS_CrearArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarArea" message="tns:IServicioWFBS_ActualizarArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarAreaResponse" message="tns:IServicioWFBS_ActualizarArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarArea" message="tns:IServicioWFBS_EliminarArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarAreaResponse" message="tns:IServicioWFBS_EliminarArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerArea" message="tns:IServicioWFBS_LeerArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerAreaResponse" message="tns:IServicioWFBS_LeerArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerAreas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerAreas" message="tns:IServicioWFBS_LeerAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerAreasResponse" message="tns:IServicioWFBS_LeerAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearPerfildeCargo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/CrearPerfildeCargo" message="tns:IServicioWFBS_CrearPerfildeCargo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/CrearPerfildeCargoResponse" message="tns:IServicioWFBS_CrearPerfildeCargo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPerfildeCargo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarPerfildeCargo" message="tns:IServicioWFBS_ActualizarPerfildeCargo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/ActualizarPerfildeCargoResponse" message="tns:IServicioWFBS_ActualizarPerfildeCargo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPerfildeCargo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarPerfildeCargo" message="tns:IServicioWFBS_EliminarPerfildeCargo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/EliminarPerfildeCargoResponse" message="tns:IServicioWFBS_EliminarPerfildeCargo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPerfildeCargo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPerfildeCargo" message="tns:IServicioWFBS_LeerPerfildeCargo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPerfildeCargoResponse" message="tns:IServicioWFBS_LeerPerfildeCargo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPerfilesdeCargo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPerfilesdeCargo" message="tns:IServicioWFBS_LeerPerfilesdeCargo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioWFBS/LeerPerfilesdeCargoResponse" message="tns:IServicioWFBS_LeerPerfilesdeCargo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioWFBS" type="tns:IServicioWFBS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearCompetencia">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearCompetencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCompetencia">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarCompetencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCompetencia">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarCompetencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerCompetencia">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerCompetencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerCompetencias">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerCompetencias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearHabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearHabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarHabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarHabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarHabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarHabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerHabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabilidades">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerHabilidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerHabPorCom">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerHabPorCom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearPeriodoEvaluacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearPeriodoEvaluacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPeriodoEvaluacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarPeriodoEvaluacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPeriodoEvaluacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarPeriodoEvaluacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPeriodoEvaluacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerPeriodoEvaluacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPeriodosEvaluaciones">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerPeriodosEvaluaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Desactivado">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/Desactivado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearArea">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarArea">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarArea">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerArea">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerAreas">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerAreas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearPerfildeCargo">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/CrearPerfildeCargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPerfildeCargo">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/ActualizarPerfildeCargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPerfildeCargo">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/EliminarPerfildeCargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPerfildeCargo">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerPerfildeCargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPerfilesdeCargo">
+      <soap:operation soapAction="http://tempuri.org/IServicioWFBS/LeerPerfilesdeCargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioWFBS">
+    <wsdl:port name="BasicHttpBinding_IServicioWFBS" binding="tns:BasicHttpBinding_IServicioWFBS">
+      <soap:address location="http://localhost:50097/ServicioWFBS.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
